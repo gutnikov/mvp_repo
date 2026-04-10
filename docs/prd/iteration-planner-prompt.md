@@ -87,8 +87,8 @@ Generated from PRDs on YYYY-MM-DD. Re-run the iteration planner when PRDs change
 - <Concrete, testable condition>
 - <...>
 
-### Stakeholder message
-> Hey, we built <thing in plain language>. You can test it like this: <specific steps>. What do you think?
+### Stakeholder summary
+> Пользователь может <what the user can do after this iteration — one or two sentences in plain Russian, no jargon, no technical terms>.
 
 ---
 
@@ -114,7 +114,7 @@ Nothing to do here — stakeholder is working on clarifying these.
 - **User stories** — list story ID and a one-line summary (not the full "As a..." format).
 - **Business rules** — IDs only. The developer reads the full rules in the feature doc.
 - **Acceptance criteria** — concrete and testable. "User can upload an image" not "image upload works." Each criterion maps to something you can verify by using the product.
-- **Stakeholder message** — plain language, no jargon, no IDs. Written so you can copy-paste it into a chat message. Must include what was built AND how to test it.
+- **Stakeholder summary** — one or two sentences in plain Russian starting with "Пользователь может...". No jargon, no IDs, no technical terms. Written so a non-technical stakeholder instantly understands what the user gets after this iteration.
 
 ### Edge cases
 
