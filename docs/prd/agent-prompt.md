@@ -74,7 +74,7 @@ When a stakeholder wants to change something already documented:
 2. Discuss the change — ask why, explore impact, surface edge cases the change introduces.
 3. Update the feature doc and bump the version number:
    - Minor bump (`1.0` → `1.1`) for additive or clarifying changes
-   - Major bump (`1.x` → `2.0`) for changes that alter existing user stories or remove functionality
+   - Major bump (`1.x` → `2.0`) for changes that alter existing user stories, remove functionality, or change business rules
 4. Log the decision in `docs/prd/decisions.md`.
 5. If major version bump, create a git tag: `prd/<feature-slug>/vX.0`
 
