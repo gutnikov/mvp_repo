@@ -1,12 +1,14 @@
 # PRD Repository
 
-This repository maintains Product Requirements Documents for the project. An AI agent (the PRD Architect) maintains these docs through stakeholder conversations.
+This repository maintains Product Requirements Documents for the project. Two AI agents maintain these docs: a **Communication Agent** conducts stakeholder conversations, and an **Analysis Agent** processes those conversations into structured PRD documents.
 
 ## Agent Configuration
 
-The PRD Architect system prompt lives at `docs/prd/agent-prompt.md`. Load it as the system prompt when starting a stakeholder session.
+The **Communication Agent** prompt lives at `prompts/comms-agent-prompt.md`. Load it as the system prompt when starting a stakeholder session. Runs on a cheap/fast model.
 
-The Iteration Planner system prompt lives at `docs/prd/iteration-planner-prompt.md`. Load it to regenerate `docs/prd/iterations.md` from current PRDs. One-shot — no conversation needed.
+The **Analysis Agent** prompt lives at `prompts/analysis-agent-prompt.md`. Run it one-shot after a stakeholder session, providing the conversation transcript as input. Runs on a capable model.
+
+The **Iteration Planner** prompt lives at `prompts/iteration-planner-prompt.md`. Run it one-shot to regenerate `docs/prd/iterations.md` from current PRDs. No conversation needed.
 
 ## Directory Layout
 
@@ -16,6 +18,7 @@ docs/prd/
 ├── iterations.md            # Generated delivery plan (output of iteration planner)
 ├── decisions.md             # Append-only decision log (what changed, when, why)
 ├── changelog.md             # Per-session conversation summaries
+├── open-questions.yml       # Machine-readable open questions (managed by Analysis Agent)
 ├── features/
 │   ├── <feature-slug>.md    # One file per feature/epic
 │   └── ...
@@ -104,5 +107,6 @@ All IDs use the pattern `<FEATURE_PREFIX>-<TYPE>-<NNN>`:
 |------|---------|---------|
 | User Story | `<FEAT>-US-<NNN>` | `AUTH-US-001` |
 | Business Rule | `<FEAT>-BR-<NNN>` | `AUTH-BR-001` |
+| Open Question | `<FEAT>-OQ-<NNN>` | `AUTH-OQ-001` |
 
 The feature prefix is an uppercase abbreviation of the feature slug (e.g., `user-auth` → `AUTH`, `billing` → `BILL`).
