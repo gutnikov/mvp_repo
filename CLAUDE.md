@@ -6,11 +6,14 @@ This repository maintains Product Requirements Documents for the project. An AI 
 
 The PRD Architect system prompt lives at `docs/prd/agent-prompt.md`. Load it as the system prompt when starting a stakeholder session.
 
+The Iteration Planner system prompt lives at `docs/prd/iteration-planner-prompt.md`. Load it to regenerate `docs/prd/iterations.md` from current PRDs. One-shot — no conversation needed.
+
 ## Directory Layout
 
 ```
 docs/prd/
 ├── overview.md              # Product vision, goals, scope, target users
+├── iterations.md            # Generated delivery plan (output of iteration planner)
 ├── decisions.md             # Append-only decision log (what changed, when, why)
 ├── changelog.md             # Per-session conversation summaries
 ├── features/
