@@ -38,13 +38,15 @@ On load, the agent silently reads:
 
 ### Step 2 — Group ready stories into touchable slices
 
-Apply the touchable-slice test: *"Can I write a message to the stakeholder that says: we built X, go test it by doing Y?"*
+Each iteration is the **smallest thing the stakeholder can interact with and give focused feedback on.** The test: *"Can I send the stakeholder a message saying: we built X, try it by doing Y — what do you think?"*
+
+Prefer smaller over larger. A big iteration overwhelms the stakeholder and produces vague feedback. A small iteration gets specific, actionable feedback.
 
 Grouping heuristics:
 
-- Stories sharing the same wizard step or UI surface cluster together.
-- A story that produces output (e.g., "download the banner") anchors an iteration — pull in everything upstream needed to reach that output.
-- An input-only story (e.g., "enter product name") never stands alone — it joins the iteration where its input first becomes visible in a result.
+- **One story per iteration by default.** Only merge stories when they genuinely can't be interacted with separately.
+- A story where the user interacts with UI — fills a form, uploads a file, picks an option — is touchable on its own, even without downstream processing.
+- Never mix stories from different features unless genuinely coupled.
 
 ### Step 3 — Order iterations by dependency
 

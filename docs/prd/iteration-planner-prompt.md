@@ -35,14 +35,13 @@ Everything else is **ready**.
 
 ### Step 3 — Group ready stories into touchable slices
 
-The goal: each group must pass this test — *"Can I send the stakeholder a message saying: we built X, go test it by doing Y?"*
+The goal: each iteration is the **smallest thing the stakeholder can interact with and give focused feedback on.** The test is: *"Can I send the stakeholder a message saying: we built X, try it by doing Y — what do you think?"*
 
-If the answer is no, the group is too thin and must absorb more stories.
+Prefer smaller over larger. A big iteration overwhelms the stakeholder and produces vague feedback ("looks good I guess"). A small iteration gets specific feedback ("the upload felt clunky, can we also support drag-and-drop?"). When in doubt, split.
 
 Grouping rules:
-- Stories that share the same wizard step or UI surface cluster together.
-- A story that produces visible output (e.g., download, preview, generated result) **anchors** an iteration. Pull in every upstream story needed to reach that output.
-- A story that only collects input (e.g., "enter product name") never stands alone. It joins the iteration where its input first becomes visible in a result.
+- **One story per iteration by default.** Only merge stories when they genuinely can't be interacted with separately (e.g., two stories that describe different aspects of the same button).
+- A story where the user interacts with UI — fills a form, uploads a file, picks an option — **is touchable on its own**, even without downstream processing. The stakeholder can try the interaction and give feedback on the UX.
 - Never mix stories from different features in one iteration unless the features are genuinely coupled (shared UI, shared data flow). When in doubt, keep them separate.
 
 ### Step 4 — Order iterations
