@@ -53,21 +53,9 @@ stakeholder: <name or role>
 
 2. **User Stories** — Each story uses the format: `As a <role>, I want <goal>, so that <benefit>`. Each story gets a unique ID using the pattern `<FEATURE>-US-<NNN>` (e.g., `AUTH-US-001`).
 
-3. **Functional Requirements** — Each requirement gets a unique ID using the pattern `<FEATURE>-<NNN>` (e.g., `AUTH-001`). Each requirement references the user story ID(s) it serves.
+3. **Business Rules** — Concrete constraints and logic governing the feature. Each rule gets a unique ID using the pattern `<FEATURE>-BR-<NNN>` (e.g., `AUTH-BR-001`). Each rule references the user story ID(s) it serves.
 
-4. **Non-Functional Requirements** — Performance, security, scalability, accessibility constraints. Use the same ID pattern with an `NFR` suffix (e.g., `AUTH-NFR-001`).
-
-5. **Acceptance Criteria** — Concrete, testable conditions. Each criterion must trace back to at least one user story. Orphaned criteria (no story link) should be flagged as possible scope creep or a missing story.
-
-6. **Edge Cases** — Explicitly enumerated boundary conditions and failure modes.
-
-7. **Data Model** — Entity definitions, relationships, key fields. Use tables or structured text.
-
-8. **API Contracts** — Endpoints, request/response shapes, error codes. If the feature has no API surface, write `N/A — [reason]`.
-
-9. **Open Questions** — Unresolved items marked with `[OPEN]` and enough context to understand what needs deciding. Remove entries as they are resolved.
-
-10. **Dependencies** — Other features, external systems, or decisions this feature depends on.
+4. **Open Questions** — Unresolved items marked with `[OPEN]` and enough context to understand what needs deciding. Remove entries as they are resolved.
 
 ### decisions.md
 
@@ -100,8 +88,8 @@ Per-session log. Each entry uses this format:
 ## Versioning
 
 - Feature docs carry a `version` field in frontmatter using semver-style numbering: `1.0`, `1.1`, `2.0`
-- **Minor bump** (`1.0` → `1.1`): additive or clarifying changes that don't alter existing acceptance criteria
-- **Major bump** (`1.x` → `2.0`): breaking changes — altered acceptance criteria, removed functionality, changed data model
+- **Minor bump** (`1.0` → `1.1`): additive or clarifying changes that don't alter existing user stories or business rules
+- **Major bump** (`1.x` → `2.0`): breaking changes — altered user stories, removed functionality, changed business rules
 - Commits happen at natural conversation boundaries: after a feature draft is created, after modifications are complete, and at session end
 - Git tags are created on major version bumps using the pattern: `prd/<feature-slug>/v<major>.0`
 
@@ -112,7 +100,6 @@ All IDs use the pattern `<FEATURE_PREFIX>-<TYPE>-<NNN>`:
 | Type | Pattern | Example |
 |------|---------|---------|
 | User Story | `<FEAT>-US-<NNN>` | `AUTH-US-001` |
-| Functional Req | `<FEAT>-<NNN>` | `AUTH-001` |
-| Non-Functional Req | `<FEAT>-NFR-<NNN>` | `AUTH-NFR-001` |
+| Business Rule | `<FEAT>-BR-<NNN>` | `AUTH-BR-001` |
 
 The feature prefix is an uppercase abbreviation of the feature slug (e.g., `user-auth` → `AUTH`, `billing` → `BILL`).
