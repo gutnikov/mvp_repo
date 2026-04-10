@@ -5,7 +5,7 @@ Generated from PRDs on 2026-04-10. Re-run the iteration planner when PRDs change
 ## Iteration 1 — Product image input
 
 ### What we're building
-The first step of the banner wizard: a screen where the user pastes a product image URL or uploads a file directly. The system validates the URL/file and displays a preview of the uploaded image. If the URL is unreachable or the image is invalid, an error message is shown in Russian.
+A screen where the user provides their product photo, either by pasting a URL or uploading a file directly. The system validates the input (reachable URL, valid image format) and displays a preview. This is the first wizard step and the foundation everything else builds on.
 
 ### User stories
 - BANNER-US-001: Provide a product image via URL or file upload for use in the banner
@@ -14,109 +14,109 @@ The first step of the banner wizard: a screen where the user pastes a product im
 - BANNER-BR-001, BANNER-BR-002, BANNER-BR-003, BANNER-BR-004, BANNER-BR-005
 
 ### Acceptance criteria
-- User can paste a URL and see the fetched image displayed as a preview
-- User can upload an image file from their device and see it displayed as a preview
-- If a URL is unreachable or the file is not a valid image, a clear error message appears in Russian
-- The uploaded/fetched image is stored and carried forward for later steps
+- User can paste a product image URL and see a preview of the loaded image
+- User can upload an image file from their device and see a preview
+- If the URL is unreachable or the file is not a valid image, a clear error message is shown in Russian
+- User can replace the image by pasting a new URL or uploading a different file
 
-### Stakeholder message
-> Hey, we built the first step of the banner creator — product image input. You can test it like this: open the app, paste a URL to one of your product photos (or upload a file from your phone/computer), and check that the image shows up correctly. Try an invalid URL too and see if the error message makes sense. What do you think?
+### Stakeholder summary
+> Пользователь может загрузить фото товара — вставить ссылку или выбрать файл с устройства — и сразу увидеть превью загруженного изображения.
 
 ---
 
 ## Iteration 2 — Product text entry
 
 ### What we're building
-The second wizard step: a form where the user enters the product name (required), key specs (optional), and price (optional). The step enforces that the product name is filled in before the user can proceed.
+A wizard step where the user enters the product name (required), key specs (optional), and price (optional). This is the second step of the creation flow. The entered text will later feed into banner generation.
 
 ### User stories
-- BANNER-US-002: Enter product name and key specs so banner text is accurate
+- BANNER-US-002: Enter product name and key specs so the banner text is accurate
 
 ### Business rules
 - BANNER-BR-001, BANNER-BR-002, BANNER-BR-003
 
 ### Acceptance criteria
-- User sees a form with fields for product name, key specs, and price
-- Product name is required — the user cannot proceed without filling it in
-- Key specs and price fields are optional
+- User can enter a product name (required field — cannot proceed without it)
+- User can optionally enter key specs and price
 - User can navigate back to the image step and return without losing entered text
+- Entered text is preserved when navigating between wizard steps
 
-### Stakeholder message
-> Hey, we built the product text step of the banner creator. You can test it like this: after uploading your product image, you'll see a new screen asking for the product name, specs, and price. Fill in a real product's details, try leaving the name empty to see the validation, and go back to the image step and forward again to make sure nothing is lost. What do you think?
+### Stakeholder summary
+> Пользователь может ввести название товара, характеристики и цену, чтобы эта информация появилась на баннере.
 
 ---
 
 ## Iteration 3 — Marketplace and size selection
 
 ### What we're building
-The fourth wizard step: a selection screen where the user picks the target marketplace (Ozon, Wildberries, Yandex Market, or Mega Market). The system automatically determines the correct banner dimensions based on the selected marketplace.
+A wizard step where the user picks the target marketplace (Ozon, Wildberries, Yandex Market, Mega Market). The system automatically sets the banner dimensions based on the selected marketplace. No manual size entry needed.
 
 ### User stories
-- BANNER-US-004: Select target marketplace and banner size so the output fits platform requirements
+- BANNER-US-004: Select target marketplace and get correctly sized output automatically
 
 ### Business rules
 - BANNER-BR-001, BANNER-BR-002, BANNER-BR-003, BANNER-BR-007
 
 ### Acceptance criteria
-- User can select from exactly four marketplaces: Ozon, Wildberries, Yandex Market, Mega Market
-- Selecting a marketplace automatically shows the corresponding banner dimensions
-- User can navigate back to previous steps and return without losing their selection
-- Only one marketplace can be selected at a time
+- User can select one of: Ozon, Wildberries, Yandex Market, Mega Market
+- The selected marketplace determines the banner dimensions automatically
+- User can change the marketplace selection and the dimensions update accordingly
+- User can navigate back to previous steps and return without losing the selection
 
-### Stakeholder message
-> Hey, we built the marketplace selection step. You can test it like this: after filling in your product details, pick the marketplace where you sell (Ozon, Wildberries, etc.) and see the banner size that gets set automatically. Try switching between marketplaces and check that the sizes look right for each one. What do you think?
+### Stakeholder summary
+> Пользователь может выбрать маркетплейс, и система автоматически подберёт нужный размер баннера для этой площадки.
 
 ---
 
-## Iteration 4 — Special instructions input
+## Iteration 4 — Special instructions
 
 ### What we're building
-The fifth wizard step: a free-form text field where the user can type additional requirements for the banner that aren't covered by the other steps — things like "show the waterproof rating" or "add a discount badge."
+A free-form text field as the final wizard step before generation. The user can type any additional requirements — "show waterproof rating", "add discount badge", etc. This step is optional; the user can leave it empty and proceed.
 
 ### User stories
-- BANNER-US-005: Provide free-form additional requirements to influence the final banner
+- BANNER-US-005: Add free-form special instructions to influence the banner result
 
 ### Business rules
 - BANNER-BR-001, BANNER-BR-002, BANNER-BR-003
 
 ### Acceptance criteria
-- User sees a free-form text field for entering special instructions
-- The field is optional — the user can proceed without entering anything
-- User can navigate back to previous steps and return without losing their text
-- Entered text is preserved and carried forward for generation
+- User can enter free-form text describing additional banner requirements
+- The field is optional — user can proceed without entering anything
+- User can navigate back to previous steps and return without losing the text
+- Entered text is preserved across wizard navigation
 
-### Stakeholder message
-> Hey, we built the special instructions step. You can test it like this: after picking your marketplace, you'll see a text box where you can type anything extra you want on the banner — like "add a discount badge" or "highlight waterproof rating." Try typing something, go back a step, and come forward again to make sure your text is still there. What do you think?
+### Stakeholder summary
+> Пользователь может написать дополнительные пожелания к баннеру в свободной форме — например, «добавить значок скидки» или «указать водонепроницаемость».
 
 ---
 
 ## Iteration 5 — Banner generation and iteration
 
 ### What we're building
-The generation screen: after completing the wizard, the user triggers banner generation. The system assembles all inputs (image, text, marketplace/size, special instructions) into a generation prompt and produces a banner preview. The user can re-generate with the same inputs for a different result, or go back to tweak any wizard step and re-generate.
+The generation step: the system assembles all wizard inputs into a generation prompt (invisible to the user), produces a banner, and displays it. The user can re-generate (same inputs, new result), go back and tweak any wizard step, then re-generate again. This is the core value loop.
 
 ### User stories
-- BANNER-US-006: See the generated banner and re-generate or tweak inputs to iterate on the result
+- BANNER-US-006: See the generated banner and be able to re-generate or tweak inputs
 
 ### Business rules
 - BANNER-BR-001, BANNER-BR-002, BANNER-BR-003, BANNER-BR-008
 
 ### Acceptance criteria
-- User can trigger generation after completing all wizard steps
-- A banner preview is displayed after generation
+- User can trigger banner generation after completing the wizard steps
+- Generated banner is displayed as a preview
 - User can re-generate with the same inputs and get a different result
 - User can navigate back to any wizard step, change inputs, and re-generate
-- The generation prompt is assembled automatically — the user never sees or edits it directly
+- The user never sees or edits the generation prompt directly
 
-### Stakeholder message
-> Hey, we built the banner generation step. You can test it like this: go through all the wizard steps with a real product, then hit generate and see the banner it creates. Try hitting re-generate to get a different version with the same inputs. Then go back, change the product name or marketplace, and generate again. What do you think of the results?
+### Stakeholder summary
+> Пользователь может сгенерировать баннер, посмотреть результат, и если что-то не нравится — перегенерировать или изменить данные и попробовать снова.
 
 ---
 
 ## Iteration 6 — Banner download
 
 ### What we're building
-A download action on the generation screen. After the user is happy with the generated banner, they can download it in the exact format and dimensions required by their selected marketplace — ready for direct upload, no post-processing needed.
+A download action on the generation result screen. The user downloads the finished banner in the exact format and dimensions required by the marketplace they selected earlier. The file is ready for direct upload to the marketplace — no post-processing needed.
 
 ### User stories
 - BANNER-US-007: Download the finished banner ready for marketplace upload
@@ -126,12 +126,12 @@ A download action on the generation screen. After the user is happy with the gen
 
 ### Acceptance criteria
 - User can download the generated banner with a single action
-- The downloaded file is in the format required by the selected marketplace
-- The downloaded file has the exact pixel dimensions required by the selected marketplace
-- The file can be uploaded directly to the marketplace listing without resizing or conversion
+- Downloaded file is in the format required by the selected marketplace
+- Downloaded file has the exact dimensions required by the selected marketplace
+- The file is usable as-is for marketplace upload without any editing or conversion
 
-### Stakeholder message
-> Hey, we built the download feature. You can test it like this: generate a banner for one of your products, then hit the download button. Try uploading the downloaded file to your marketplace listing (Ozon, Wildberries, etc.) and check that it fits perfectly — no resizing or editing needed. What do you think?
+### Stakeholder summary
+> Пользователь может скачать готовый баннер, который сразу подходит для загрузки на выбранный маркетплейс — без дополнительной обработки.
 
 ---
 
@@ -141,6 +141,6 @@ Stories that can't be planned yet because of unresolved open questions.
 
 | Story | Blocked by | Open question |
 |-------|-----------|---------------|
-| BANNER-US-003: Choose a visual style for the banner | BANNER-BR-006 | Style preset list is incomplete — dark/light is confirmed but the full set of visual presets (minimal vs. bold, monochrome vs. colorful, etc.) needs to be defined before this step can be built. |
+| BANNER-US-003: Choose a visual style for the banner | BANNER-BR-006 | Exact list of style presets to offer is undefined. Dark/light is confirmed, but the full set of visual dimensions (minimal vs. bold, monochrome vs. colorful, etc.) needs to be decided. |
 
 Nothing to do here — stakeholder is working on clarifying these.
